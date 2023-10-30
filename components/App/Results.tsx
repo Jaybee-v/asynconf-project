@@ -1,9 +1,8 @@
 import React from "react"
-import { MdOutlineArrowRight } from "react-icons/md"
-import { Button } from "../ui/button"
 import { Card, CardHeader, CardContent, CardFooter } from "../ui/card"
 import { getSearch } from "@/lib/work-data"
 import { Label } from "../ui/label"
+import { StepFooter } from "./StepFooter"
 
 interface ResultsProps {
     setCurrentStep: (step: number) => void
@@ -57,24 +56,7 @@ export const Results: React.FC<ResultsProps> = ({
                     </h2>
                 </section>
             </CardContent>
-            <CardFooter className="w-full">
-                <div className="flex justify-evenly m-4 group w-full">
-                    {/* <Button className="bg-background text-gray-700 hover:bg-gray-200">
-                        Modifier
-                    </Button> */}
-                    <Button onClick={() => setCurrentStep(1)}>
-                        {currentStep === 2 && "Réaliser une nouvelle recherche"}
-                        <MdOutlineArrowRight
-                            size={20}
-                            className={`ms-2 animate-ping`}
-                        />{" "}
-                        <MdOutlineArrowRight
-                            size={20}
-                            className={`ms-2 animate-ping delay-75`}
-                        />{" "}
-                    </Button>
-                </div>
-            </CardFooter>
+           <StepFooter setCurrentStep={setCurrentStep} onSubmit={() => setCurrentStep(1)} currentStep={currentStep} disabled={false} />
         </Card>
     )
 }

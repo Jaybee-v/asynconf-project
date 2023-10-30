@@ -3,17 +3,33 @@ import React from "react"
 import { Card, CardContent, CardFooter } from "../ui/card"
 import { Button } from "../ui/button"
 import { MdOutlineArrowRight } from "react-icons/md"
+import { Label } from "../ui/label"
+import { Input } from "../ui/input"
+import { StepFooter } from "./StepFooter"
 
 interface WelcomeProps {
     currentStep: number
     setCurrentStep: (step: number) => void
+    name: string
+    familyName: string
+    email: string
+    setName: (name: string) => void
+    setFamilyName: (familyName: string) => void
+    setEmail: (email: string) => void
 }
 
 export const Welcome: React.FC<WelcomeProps> = ({
     currentStep,
     setCurrentStep,
+    name,
+    familyName,
+    email,
+    setName,
+    setFamilyName,
+    setEmail
 }) => {
-    const [score, setScore] = React.useState(0)
+
+
     return (
         <Card className="md:max-w-[80%] w-full min-h-[250px] h-full flex flex-col justify-between">
             <CardContent>
@@ -30,23 +46,24 @@ export const Welcome: React.FC<WelcomeProps> = ({
                         économie verte et durable.
                     </p>
                 </section>
-
-                <CardFooter>
-                    <div className="flex justify-end m-4 group">
-                        <Button onClick={() => setCurrentStep(1)}>
-                            {currentStep === 0 ? "Commencer" : "Suivant"}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className="ms-2 animate-ping "
-                            />{" "}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className="ms-2 animate-ping delay-75"
-                            />{" "}
-                        </Button>
+                <section className="flex flex-col  items-center mx-auto relative w-full">
+                    <p className="italic text-sm absolute w-72 top-14 right-0">Vous pouvez continuer sans remplir ces informations, mais vous n&apos;aurez pas d&apos;historique de recherche</p>
+                    <div className="w-96">
+                        <Label>Nom</Label>
+                        <Input placeholder="Nom" value={familyName} onChange={(e) => setFamilyName(e.target.value)} />
                     </div>
-                </CardFooter>
+                    <div className="w-96">
+                        <Label>Prénom</Label>
+                        <Input placeholder="Prénom" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+                    <div className="w-96">
+                        <Label>Email</Label>
+                        <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                </section>
+
             </CardContent>
+                <StepFooter onSubmit={() => setCurrentStep(1)} setCurrentStep={setCurrentStep} currentStep={currentStep} disabled={false} />
         </Card>
     )
 }

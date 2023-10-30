@@ -4,10 +4,9 @@ import dataCar from "@/data/data-car.json"
 import dataEmprunt from "@/data/data-emprunt.json"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { BiSolidDownArrow } from "react-icons/bi"
-import { MdOutlineArrowRight } from "react-icons/md"
-import { Button } from "../ui/button"
 import { CalcTaux } from "@/lib/functions"
 import { setSearch } from "@/lib/work-data"
+import { StepFooter } from "./StepFooter"
 
 interface FormProps {
     setCurrentStep: (step: number) => void
@@ -85,6 +84,20 @@ export const Form: React.FC<FormProps> = ({
         mileages,
         years,
     ])
+
+    const handleSubmit = () => {
+        setCurrentStep(2)
+        const saveData = {
+            type: types.find((type) => type.score === typeScore),
+            energy: energies.find((energy) => energy.score === energyScore),
+            mileage: mileages.find(
+                (mileage) => mileage.score === mileageScore
+            ),
+            year: years.find((year) => year.score === yearScore),
+            taux: taux,
+            bonus: bonus,
+        }
+    }
 
     return (
         <Card>
@@ -179,7 +192,7 @@ export const Form: React.FC<FormProps> = ({
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-                <div className="relative inline-block w-40">
+                <div className="relative inline-block w-32">
                     <select
                         value={bonus.toString()}
                         onChange={(e) => setBonus(Number(e.target.value))}
@@ -195,37 +208,12 @@ export const Form: React.FC<FormProps> = ({
                             </option>
                         ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 -top-14 right-0 flex items-center px-2 text-gray-700">
+                    <div className="pointer-events-none absolute inset-y-0  right-0 flex items-center px-2 text-gray-700">
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-
-                <CardFooter>
-                    <div className="flex justify-end m-4 group">
-                        <Button
-                            onClick={() => setCurrentStep(2)}
-                            className={`${
-                                disabled ? "cursor-wait" : "cursor-pointer"
-                            }`}
-                            disabled={disabled}
-                        >
-                            {currentStep === 0 ? "Commencer" : "Suivant"}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className={`ms-2 ${
-                                    !disabled ? "animate-ping" : "hidden"
-                                } `}
-                            />{" "}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className={`ms-2 ${
-                                    !disabled ? "animate-ping" : "hidden"
-                                } delay-75`}
-                            />{" "}
-                        </Button>
-                    </div>
-                </CardFooter>
             </CardContent>
+            <StepFooter setCurrentStep={setCurrentStep} onSubmit={handleSubmit} currentStep={currentStep} disabled={disabled}/>
         </Card>
     )
 }

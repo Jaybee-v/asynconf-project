@@ -6,17 +6,21 @@ import { MdDarkMode } from "react-icons/md"
 import { BsFillSunFill } from "react-icons/bs"
 export const ToggleTheme = () => {
     const { setTheme, theme } = useTheme()
+    React.useEffect(() => {
+        setTheme("light")
+    }, [])
     return (
-        <Button
-            onClick={() => {
-                theme === "light" ? setTheme("dark") : setTheme("light")
-            }}
-        >
-            {theme === "light" ? (
-                <MdDarkMode size={15} />
-            ) : (
-                <BsFillSunFill size={15} />
+        <>
+            {theme === "light" && (
+                <Button onClick={() => setTheme("dark")}>
+                    <MdDarkMode size={15} />
+                </Button>
             )}
-        </Button>
+            {theme === "dark" && (
+                <Button onClick={() => setTheme("light")}>
+                    <BsFillSunFill size={15} />
+                </Button>
+            )}
+        </>
     )
 }
