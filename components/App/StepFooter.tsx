@@ -75,7 +75,6 @@ export const StepFooter: React.FC<StepFooterProps> = ({
                 )}
                 {currentStep === 2 && (
                     <Button
-
                         onClick={onSubmit}
                         className={`${
                             disabled ? "cursor-wait" : "cursor-pointer"

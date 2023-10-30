@@ -10,17 +10,17 @@ export const ToggleTheme = () => {
         setTheme("light")
     }, [])
     return (
-        <>
+        <section className="w-full flex justify-end">
             {theme === "light" && (
-                <Button onClick={() => setTheme("dark")}>
-                    <MdDarkMode size={15} />
+                <Button className="bg-background-reverse hover:!bg-opacity-60 hover:bg-background-reverse" onClick={() => setTheme("dark")}>
+                    <MdDarkMode size={15} color="white" />
                 </Button>
             )}
             {theme === "dark" && (
-                <Button onClick={() => setTheme("light")}>
-                    <BsFillSunFill size={15} />
+                <Button className="bg-background-reverse hover:!bg-opacity-20 hover:bg-background-reverse" onClick={() => setTheme("light")}>
+                    <BsFillSunFill size={15} color="black" />
                 </Button>
             )}
-        </>
+        </section>
     )
 }

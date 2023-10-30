@@ -20,7 +20,7 @@ export const Results: React.FC<ResultsProps> = ({
     
 
     return (
-        <Card>
+        <Card className="md:max-w-[70%] w-full">
             <CardHeader>
                 Voici un résumé des informations que vous avez fourni. <br />{" "}
                 Vous pouvez modifier les informations, ou valider si les

@@ -88,22 +88,10 @@ export const Form: React.FC<FormProps> = ({
         years,
     ])
 
-    const handleSubmit = () => {
-        setCurrentStep(2)
-        const saveData = {
-            type: types.find((type) => type.score === typeScore),
-            energy: energies.find((energy) => energy.score === energyScore),
-            mileage: mileages.find(
-                (mileage) => mileage.score === mileageScore
-            ),
-            year: years.find((year) => year.score === yearScore),
-            taux: taux,
-            bonus: bonus,
-        }
-    }
+
 
     return (
-        <Card>
+        <Card className="w-[95%] md:max-w-[85%] lg:max-w-[70%] ">
             <CardHeader>
                 Renseignez les différentes informations afin de calculer au
                 mieux votre taux d&apos;emprunt
@@ -221,7 +209,7 @@ export const Form: React.FC<FormProps> = ({
                     </div>
                 </div>
             </CardContent>
-            <StepFooter setCurrentStep={setCurrentStep} onSubmit={handleSubmit} currentStep={currentStep} disabled={disabled}/>
+            <StepFooter setCurrentStep={setCurrentStep} onSubmit={() => setCurrentStep(2)} currentStep={currentStep} disabled={disabled}/>
         </Card>
     )
 }

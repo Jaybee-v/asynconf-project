@@ -37,7 +37,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
             </CardHeader>
             <CardContent>
                 <section>
-                    <p className="w-[70%] mx-auto my-8 bg-background text-primary p-4">
+                    <p className="w-[70%] mx-auto my-8 bg-background text-primary p-4 text-lg">
                         La Green Bank, fondée en 2022, est une institution
                         financière novatrice axée sur la durabilité et
                         l&apos;impact environnemental positif. Son objectif
@@ -47,7 +47,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                     </p>
                 </section>
                 <section className="flex flex-col md:flex-row-reverse justify-evenly  items-center mx-auto relative w-full">
-                    <p className="italic text-sm w-64">
+                    <p className="italic text-sm w-64 md:w-96">
                         Vous pouvez continuer sans remplir ces informations,
                         mais vous n&apos;aurez pas d&apos;historique de
                         recherche
