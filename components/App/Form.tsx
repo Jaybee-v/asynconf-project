@@ -7,6 +7,9 @@ import { BiSolidDownArrow } from "react-icons/bi"
 import { CalcTaux } from "@/lib/functions"
 import { setSearch } from "@/lib/work-data"
 import { StepFooter } from "./StepFooter"
+import { MdCarCrash, MdModeOfTravel, MdGroups3 } from "react-icons/md"
+import { AiTwotoneThunderbolt } from "react-icons/ai"
+import { FaCarOn } from "react-icons/fa6"
 
 interface FormProps {
     setCurrentStep: (step: number) => void
@@ -106,7 +109,8 @@ export const Form: React.FC<FormProps> = ({
                 mieux votre taux d&apos;emprunt
             </CardHeader>
             <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto">
-                <div className="relative inline-block w-54">
+                <div className="relative  inline-flex items-center gap-2 w-54">
+                    <MdCarCrash size={20} color="" />
                     <select
                         value={typeScore.toString()}
                         onChange={(e) => setTypeScore(Number(e.target.value))}
@@ -126,7 +130,8 @@ export const Form: React.FC<FormProps> = ({
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-                <div className="relative inline-block w-54">
+                <div className="relative inline-flex items-center gap-2 w-54">
+                    <AiTwotoneThunderbolt size={20} color="" />
                     <select
                         value={energyScore.toString()}
                         onChange={(e) => setEnergyScore(Number(e.target.value))}
@@ -146,7 +151,8 @@ export const Form: React.FC<FormProps> = ({
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-                <div className="relative inline-block w-54">
+                <div className="relative inline-flex items-center gap-2 w-54">
+                    <MdModeOfTravel size={20} color="" />
                     <select
                         value={mileageScore.toString()}
                         onChange={(e) =>
@@ -168,7 +174,8 @@ export const Form: React.FC<FormProps> = ({
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-                <div className="relative inline-block w-54">
+                <div className="relative inline-flex items-center gap-2 w-54">
+                    <FaCarOn size={20} color="" />
                     <select
                         value={yearScore.toString()}
                         onChange={(e) => setYearScore(Number(e.target.value))}
@@ -192,7 +199,8 @@ export const Form: React.FC<FormProps> = ({
                         <BiSolidDownArrow size={13} color="green" />
                     </div>
                 </div>
-                <div className="relative inline-block w-32">
+                <div className="relative inline-flex items-center gap-2 w-40">
+                    <MdGroups3 size={20} color="" />
                     <select
                         value={bonus.toString()}
                         onChange={(e) => setBonus(Number(e.target.value))}

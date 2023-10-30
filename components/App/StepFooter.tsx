@@ -75,25 +75,26 @@ export const StepFooter: React.FC<StepFooterProps> = ({
                 )}
                 {currentStep === 2 && (
                     <Button
+
                         onClick={onSubmit}
                         className={`${
                             disabled ? "cursor-wait" : "cursor-pointer"
                         }`}
                         disabled={disabled}
                     >
-                        Essayer une nouvelle simulation
                         <MdOutlineArrowRight
                             size={20}
                             className={`ms-2 ${
                                 !disabled ? "animate-ping" : "hidden"
                             } `}
-                        />{" "}
+                            />{" "}
                         <MdOutlineArrowRight
                             size={20}
-                            className={`ms-2 ${
+                            className={`ms-2 me-2 ${
                                 !disabled ? "animate-ping" : "hidden"
                             } delay-75`}
-                        />{" "}
+                            />{" "}
+                            Essayer une nouvelle simulation
                     </Button>
                 )}
             </div>

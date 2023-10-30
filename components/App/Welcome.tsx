@@ -46,19 +46,21 @@ export const Welcome: React.FC<WelcomeProps> = ({
                         économie verte et durable.
                     </p>
                 </section>
-                <section className="flex flex-col  items-center mx-auto relative w-full">
-                    <p className="italic text-sm absolute w-72 top-14 right-0">
+                <section className="flex flex-col md:flex-row-reverse justify-evenly  items-center mx-auto relative w-full">
+                    <p className="italic text-sm w-64">
                         Vous pouvez continuer sans remplir ces informations,
                         mais vous n&apos;aurez pas d&apos;historique de
                         recherche
                     </p>
+                    <div>
+
                     <div className="w-96">
                         <Label>Nom</Label>
                         <Input
                             placeholder="Nom"
                             value={familyName}
                             onChange={(e) => setFamilyName(e.target.value)}
-                        />
+                            />
                     </div>
                     <div className="w-96">
                         <Label>Prénom</Label>
@@ -66,7 +68,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                             placeholder="Prénom"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                        />
+                            />
                     </div>
                     <div className="w-96">
                         <Label>Email</Label>
@@ -75,8 +77,9 @@ export const Welcome: React.FC<WelcomeProps> = ({
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                        />
+                            />
                     </div>
+                            </div>
                 </section>
             </CardContent>
             <StepFooter

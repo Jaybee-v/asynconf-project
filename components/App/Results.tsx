@@ -4,6 +4,7 @@ import { getSearch } from "@/lib/work-data"
 import { Label } from "../ui/label"
 import { StepFooter } from "./StepFooter"
 import { DataSearch } from "@/models/data"
+import { Upgrade } from "./Upgrade"
 
 interface ResultsProps {
     setCurrentStep: (step: number) => void
@@ -59,6 +60,7 @@ export const Results: React.FC<ResultsProps> = ({
                     </h2>
                 </section>
             </CardContent>
+                <Upgrade data={dataSearch} />
            <StepFooter setCurrentStep={setCurrentStep} onSubmit={() => setCurrentStep(1)} currentStep={currentStep} disabled={false} />
         </Card>
     )
