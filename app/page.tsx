@@ -5,7 +5,7 @@ import React from "react"
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center gap-10 md:p-10">
+        <main className="flex min-h-screen flex-col items-center gap-4 md:p-4">
             <ToggleTheme />
             <StepWrapper />
         </main>

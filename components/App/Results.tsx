@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent, CardFooter } from "../ui/card"
 import { getSearch } from "@/lib/work-data"
 import { Label } from "../ui/label"
 import { StepFooter } from "./StepFooter"
+import { DataSearch } from "@/models/data"
 
 interface ResultsProps {
     setCurrentStep: (step: number) => void
@@ -13,7 +14,9 @@ export const Results: React.FC<ResultsProps> = ({
     setCurrentStep,
     currentStep,
 }) => {
-    const dataSearch = getSearch()
+    const dataSearch: DataSearch = getSearch()
+    console.log(dataSearch);
+    
 
     return (
         <Card>
