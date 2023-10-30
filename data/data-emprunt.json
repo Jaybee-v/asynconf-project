@@ -1,0 +1,41 @@
+{
+    "taux": [
+        {
+            "minScore": 0,
+            "maxScore": 10,
+            "percent": 3
+        },
+        {
+            "minScore": 11,
+            "maxScore": 15,
+            "percent": 2.74
+        }, {
+            "minScore": 16,
+            "maxScore": 25,
+            "percent": 2.52
+        },{
+            "minScore": 26,
+            "maxScore": 33,
+            "percent": 2.1
+        }, {
+            "minScore": 34,
+            "maxScore": 40,
+            "percent": 1.85
+        }
+    ],
+    "passager": [
+        {
+            "number": 1,
+            "bonus": 0.11
+        }, {
+            "number": 2,
+            "bonus": -0.17
+        }, {
+            "number": 3,
+            "bonus": -0.29
+        }, {
+            "number": 4,
+            "bonus": -0.53
+        }
+    ]
+}

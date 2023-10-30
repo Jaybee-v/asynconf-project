@@ -1,0 +1,109 @@
+{
+    "type": [
+        {
+            "name": "citadine",
+            "minWeight": 800,
+            "maxWeight": 1300,
+            "score": 8
+        },
+        {
+            "name": "cabriolet",
+            "minWeight": 1300,
+            "maxWeight": 2000,
+            "score": 6
+        },
+        {
+            "name": "berline",
+            "minWeight": 1300,
+            "maxWeight": 1800,
+            "score": 6.5
+        },
+        {
+            "name": "SUV / 4x4",
+            "minWeight": 1500,
+            "maxWeight": 2500,
+            "score": 4
+        }
+    ],
+    "energy": [
+        {
+            "label": "Essence",
+            "score": 5
+        },
+        {
+            "label": "Diesel",
+            "score": 4
+        },
+        {
+            "label": "Electrique",
+            "score": 9
+        },
+        {
+            "label": "Hybride",
+            "score": 7
+        },
+        {
+            "label": "Gaz",
+            "score": 6
+        }
+    ],
+    "mileage": [
+        {
+            "min": 5,
+            "max": 10,
+            "score": 9
+        },
+        {
+            "min": 10,
+            "max": 15,
+            "score": 7
+        },
+        {
+            "min": 15,
+            "max": 20,
+            "score": 5
+        },
+        {
+            "min": 20,
+            "max": 25,
+            "score": 3
+        },
+        {
+            "min": 25,
+            "max": 30,
+            "score": 1
+        }
+    ],
+    "year": [
+        {
+            "min": 1960,
+            "max": 1970,
+            "score": 1
+        },
+        {
+            "min": 1970,
+            "max": 1980,
+            "score": 2
+        },
+        {
+            "min": 1980,
+            "max": 1990,
+            "score": 3
+        },
+        {
+            "min": 1990,
+            "max": 2000,
+            "score": 4
+        },
+        {
+            "min": 2000,
+            "max": 2010,
+            "score": 5
+        },
+        {
+            "min": 2010,
+            "max": null,
+            "score": 7
+        }
+    ]
+}
