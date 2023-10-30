@@ -47,14 +47,23 @@ export const Results: React.FC<ResultsProps> = ({
                             : dataSearch.year.min + " - " + dataSearch.year.max}
                     </p>
                 </div>
+                <section>
+                    <h2>
+                        Votre taux d&apos;emprunt après calcul est de :
+                        <span className="text-xl font-bold tracking-wider">
+                            {" " + dataSearch.taux + " "}
+                        </span>
+                        %
+                    </h2>
+                </section>
             </CardContent>
             <CardFooter className="w-full">
                 <div className="flex justify-evenly m-4 group w-full">
-                    <Button className="bg-background text-gray-700 hover:bg-gray-200">
+                    {/* <Button className="bg-background text-gray-700 hover:bg-gray-200">
                         Modifier
-                    </Button>
-                    <Button onClick={() => setCurrentStep(2)}>
-                        {currentStep === 2 && "Valider"}
+                    </Button> */}
+                    <Button onClick={() => setCurrentStep(1)}>
+                        {currentStep === 2 && "Réaliser une nouvelle recherche"}
                         <MdOutlineArrowRight
                             size={20}
                             className={`ms-2 animate-ping`}

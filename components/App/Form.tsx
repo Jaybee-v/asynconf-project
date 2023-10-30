@@ -67,6 +67,7 @@ export const Form: React.FC<FormProps> = ({
                 ),
                 year: years.find((year) => year.score === yearScore),
                 taux: res,
+                bonus: bonus,
             }
 
             setSearch(saveData)
