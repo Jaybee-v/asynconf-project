@@ -1,52 +1,97 @@
 "use client"
 import React from "react"
-import { Card, CardContent, CardFooter } from "../ui/card"
-import { Button } from "../ui/button"
-import { MdOutlineArrowRight } from "react-icons/md"
+import {  CardContent, CardDescription } from "../ui/card"
+import { Label } from "../ui/label"
+import { Input } from "../ui/input"
+import { StepFooter } from "./StepFooter"
+import { StepHeader } from "./StepHeader"
 
 interface WelcomeProps {
     currentStep: number
     setCurrentStep: (step: number) => void
+    name: string
+    familyName: string
+    email: string
+    setName: (name: string) => void
+    setFamilyName: (familyName: string) => void
+    setEmail: (email: string) => void
 }
+
+const DESCRIPTION =
+    " La Green Bank, fondée en 2022, est une institution financière novatrice axée sur la durabilité et l'impact environnemental positif. Son objectif principal est de catalyser des investissements et des initiatives qui favorisent la transition vers une économie verte et durable."
 
 export const Welcome: React.FC<WelcomeProps> = ({
     currentStep,
     setCurrentStep,
+    name,
+    familyName,
+    email,
+    setName,
+    setFamilyName,
+    setEmail,
 }) => {
-    const [score, setScore] = React.useState(0)
     return (
-        <Card className="md:max-w-[80%] w-full min-h-[250px] h-full flex flex-col justify-between">
-            <CardContent>
-                <section>
-                    <h1 className="text-5xl font-semibold tracking-wide text-text">
-                        Green Bank
-                    </h1>
-                    <p className="w-[70%] mx-auto my-8 bg-background text-primary p-4">
-                        La Green Bank, fondée en 2022, est une institution
-                        financière novatrice axée sur la durabilité et
-                        l&apos;impact environnemental positif. Son objectif
-                        principal est de catalyser des investissements et des
-                        initiatives qui favorisent la transition vers une
-                        économie verte et durable.
-                    </p>
-                </section>
+        <>
+            <StepHeader  />
+            <CardDescription  className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
+                <h1>
 
-                <CardFooter>
-                    <div className="flex justify-end m-4 group">
-                        <Button onClick={() => setCurrentStep(1)}>
-                            {currentStep === 0 ? "Commencer" : "Suivant"}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className="ms-2 animate-ping "
-                            />{" "}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className="ms-2 animate-ping delay-75"
-                            />{" "}
-                        </Button>
+                La Green Bank, fondée en 2022, est une institution financière <span className="font-semibold me-1">
+                    novatrice
+                    </span>
+                     axée sur la <span className="font-semibold me-1">
+                        durabilité
+                        </span>
+                         et l&apos;<span className="font-semibold me-1">
+                            impact environnemental positif
+                            </span>
+                            . Son objectif principal est de <br/><span className="font-semibold me-1 text-primary">
+                                catalyser des investissements et des initiatives qui favorisent la transition vers une économie verte et durable
+                                </span>
+                                .
+                </h1>
+</CardDescription>
+            <CardContent>
+                <section className="flex flex-col md:grid grid-cols-2 gap-y-4 justify-evenly  items-center mx-8 relative w-full">
+                    <p className="italic text-sm w-64 md:w-96 mx-auto">
+                    Vous pouvez poursuivre sans compléter ces informations, cependant, en les partageant, vous bénéficierez d&apos;un historique de recherche personnalisé pour une expérience plus enrichissante.
+                    </p>
+                    <div className="w-full mx-auto">
+                        <Label>Email</Label>
+                        <Input
+                            placeholder="Email"
+                            className="w-96"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
-                </CardFooter>
+                    <div className="w-full  mx-auto lg:ps-20">
+                        <Label className="">Nom</Label>
+                        <Input
+                            placeholder="Nom"
+                            className="w-96 "
+                            value={familyName}
+                            onChange={(e) => setFamilyName(e.target.value)}
+                        />
+                    </div>
+                    <div className="w-full mx-auto">
+                        <Label>Prénom</Label>
+                        <Input
+                            placeholder="Prénom"
+                            className="w-96"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                </section>
             </CardContent>
-        </Card>
+            <StepFooter
+                onSubmit={() => setCurrentStep(1)}
+                setCurrentStep={setCurrentStep}
+                currentStep={currentStep}
+                disabled={false}
+            />
+        </>
     )
 }

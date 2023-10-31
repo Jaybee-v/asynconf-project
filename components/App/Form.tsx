@@ -4,10 +4,15 @@ import dataCar from "@/data/data-car.json"
 import dataEmprunt from "@/data/data-emprunt.json"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { BiSolidDownArrow } from "react-icons/bi"
-import { MdOutlineArrowRight } from "react-icons/md"
-import { Button } from "../ui/button"
 import { CalcTaux } from "@/lib/functions"
 import { setSearch } from "@/lib/work-data"
+import { StepFooter } from "./StepFooter"
+import { MdCarCrash, MdModeOfTravel, MdGroups3 } from "react-icons/md"
+import { AiTwotoneThunderbolt } from "react-icons/ai"
+import { FaCarOn } from "react-icons/fa6"
+import { Spinner } from "../Spinner"
+import { StepHeader } from "./StepHeader"
+import { Infos } from "./Infos"
 
 interface FormProps {
     setCurrentStep: (step: number) => void
@@ -15,6 +20,11 @@ interface FormProps {
     setTaux: (taux: number) => void
     taux: number
 }
+
+const TITLE =
+    "Personnalisez votre expérience en nous fournissant quelques informations clés pour obtenir le taux d'emprunt optimal."
+
+const DESRIPTION = "Pour obtenir le taux d'emprunt adapté à votre besoin, partagez quelques détails essentiels, tels que le type de véhicule, son carburant, sa date de mise en circulation, et bien plus encore."
 
 export const Form: React.FC<FormProps> = ({
     setCurrentStep,
@@ -33,7 +43,9 @@ export const Form: React.FC<FormProps> = ({
     const [mileageScore, setMileageScore] = React.useState<number>(0)
     const [yearScore, setYearScore] = React.useState<number>(0)
     const [bonus, setBonus] = React.useState<number>(0)
+
     const [disabled, setDisabled] = React.useState<boolean>(true)
+    const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
     useEffect(() => {
         let newScore = 0
@@ -86,146 +98,163 @@ export const Form: React.FC<FormProps> = ({
         years,
     ])
 
-    return (
-        <Card>
-            <CardHeader>
-                Renseignez les différentes informations afin de calculer au
-                mieux votre taux d&apos;emprunt
-            </CardHeader>
-            <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto">
-                <div className="relative inline-block w-54">
-                    <select
-                        value={typeScore.toString()}
-                        onChange={(e) => setTypeScore(Number(e.target.value))}
-                        className="block appearance-none w-full bg-background border border-border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-secondary"
-                    >
-                        <option value="0">Type du véhicule</option>
-                        {types.map((type, index) => (
-                            <option
-                                key={"type_" + index}
-                                value={type.score.toString()}
-                            >
-                                {type.name.toUpperCase()}
-                            </option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <BiSolidDownArrow size={13} color="green" />
-                    </div>
-                </div>
-                <div className="relative inline-block w-54">
-                    <select
-                        value={energyScore.toString()}
-                        onChange={(e) => setEnergyScore(Number(e.target.value))}
-                        className="block appearance-none w-full bg-background border border-border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-secondary"
-                    >
-                        <option value="0">Energie consommée</option>
-                        {energies.map((energy, index) => (
-                            <option
-                                key={"energy_" + index}
-                                value={energy.score.toString()}
-                            >
-                                {energy.label.toUpperCase()}
-                            </option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <BiSolidDownArrow size={13} color="green" />
-                    </div>
-                </div>
-                <div className="relative inline-block w-54">
-                    <select
-                        value={mileageScore.toString()}
-                        onChange={(e) =>
-                            setMileageScore(Number(e.target.value))
-                        }
-                        className="block appearance-none w-full bg-background border border-border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-secondary"
-                    >
-                        <option value="0">Trajet annuel estimé</option>
-                        {mileages.map((mileage, index) => (
-                            <option
-                                key={"mileage_" + index}
-                                value={mileage.score.toString()}
-                            >
-                                {mileage.min} - {mileage.max} 000 km / an
-                            </option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <BiSolidDownArrow size={13} color="green" />
-                    </div>
-                </div>
-                <div className="relative inline-block w-54">
-                    <select
-                        value={yearScore.toString()}
-                        onChange={(e) => setYearScore(Number(e.target.value))}
-                        className="block appearance-none w-full bg-background border border-border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-secondary"
-                    >
-                        <option value="0">
-                            Mise en circulation du véhicule
-                        </option>
-                        {years.map((year, index) => (
-                            <option
-                                key={"year_" + index}
-                                value={year.score.toString()}
-                            >
-                                {!year.max
-                                    ? "après " + year.min
-                                    : year.min + " - " + year.max}
-                            </option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <BiSolidDownArrow size={13} color="green" />
-                    </div>
-                </div>
-                <div className="relative inline-block w-40">
-                    <select
-                        value={bonus.toString()}
-                        onChange={(e) => setBonus(Number(e.target.value))}
-                        className="block appearance-none w-full bg-background border border-border text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-secondary"
-                    >
-                        <option value="0">Passagers</option>
-                        {passagers.map((passager, index) => (
-                            <option
-                                key={"passager_" + index}
-                                value={passager.bonus.toString()}
-                            >
-                                {passager.number}
-                            </option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 -top-14 right-0 flex items-center px-2 text-gray-700">
-                        <BiSolidDownArrow size={13} color="green" />
-                    </div>
-                </div>
+    const handleSubmit = () => {
+        setBonus(0)
+        setDisabled(true)
+        setTaux(0)
+        setYearScore(0)
+        setMileageScore(0)
+        setEnergyScore(0)
+        setTypeScore(0)
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+            setCurrentStep(2)
+        }, 2000)
+    }
 
-                <CardFooter>
-                    <div className="flex justify-end m-4 group">
-                        <Button
-                            onClick={() => setCurrentStep(2)}
-                            className={`${
-                                disabled ? "cursor-wait" : "cursor-pointer"
-                            }`}
-                            disabled={disabled}
-                        >
-                            {currentStep === 0 ? "Commencer" : "Suivant"}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className={`ms-2 ${
-                                    !disabled ? "animate-ping" : "hidden"
-                                } `}
-                            />{" "}
-                            <MdOutlineArrowRight
-                                size={20}
-                                className={`ms-2 ${
-                                    !disabled ? "animate-ping" : "hidden"
-                                } delay-75`}
-                            />{" "}
-                        </Button>
-                    </div>
-                </CardFooter>
-            </CardContent>
-        </Card>
+    return (
+        <>
+            <StepHeader title={TITLE} description={DESRIPTION} />
+            {!isLoading ? (
+                <>
+                <Infos/>
+                    <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto">
+                        <div className="relative  inline-flex items-center gap-2 w-54">
+                            <MdCarCrash size={30} className="text-primary" />
+                            <select
+                                value={typeScore.toString()}
+                                onChange={(e) =>
+                                    setTypeScore(Number(e.target.value))
+                                }
+                            >
+                                <option value="0">Type du véhicule</option>
+                                {types.map((type, index) => (
+                                    <option
+                                        key={"type_" + index}
+                                        value={type.score.toString()}
+                                    >
+                                        {type.name.toUpperCase()}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <BiSolidDownArrow size={13} color="green" />
+                            </div>
+                        </div>
+                        <div className="relative inline-flex items-center gap-2 w-54">
+                            <AiTwotoneThunderbolt
+                                size={30}
+                                className="text-primary"
+                            />
+                            <select
+                                value={energyScore.toString()}
+                                onChange={(e) =>
+                                    setEnergyScore(Number(e.target.value))
+                                }
+                            >
+                                <option value="0">Energie consommée</option>
+                                {energies.map((energy, index) => (
+                                    <option
+                                        key={"energy_" + index}
+                                        value={energy.score.toString()}
+                                    >
+                                        {energy.label.toUpperCase()}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <BiSolidDownArrow size={13} color="green" />
+                            </div>
+                        </div>
+                        <div className="relative inline-flex items-center gap-2 w-54">
+                            <MdModeOfTravel
+                                size={30}
+                                className="text-primary"
+                            />
+                            <select
+                                value={mileageScore.toString()}
+                                onChange={(e) =>
+                                    setMileageScore(Number(e.target.value))
+                                }
+                            >
+                                <option value="0">Trajet annuel estimé</option>
+                                {mileages.map((mileage, index) => (
+                                    <option
+                                        key={"mileage_" + index}
+                                        value={mileage.score.toString()}
+                                    >
+                                        {mileage.min} - {mileage.max} 000 km /
+                                        an
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <BiSolidDownArrow size={13} color="green" />
+                            </div>
+                        </div>
+                        <div className="relative inline-flex items-center gap-2 w-54">
+                            <FaCarOn size={30} className="text-primary" />
+                            <select
+                                value={yearScore.toString()}
+                                onChange={(e) =>
+                                    setYearScore(Number(e.target.value))
+                                }
+                            >
+                                <option value="0">
+                                    Mise en circulation du véhicule
+                                </option>
+                                {years.map((year, index) => (
+                                    <option
+                                        key={"year_" + index}
+                                        value={year.score.toString()}
+                                    >
+                                        {!year.max
+                                            ? "après " + year.min
+                                            : year.min + " - " + year.max}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <BiSolidDownArrow size={13} color="green" />
+                            </div>
+                        </div>
+                        <div className="relative inline-flex items-center gap-2 w-40">
+                            <MdGroups3 size={30} className="text-primary" />
+                            <select
+                                value={bonus.toString()}
+                                onChange={(e) =>
+                                    setBonus(Number(e.target.value))
+                                }
+                            >
+                                <option value="0">Passagers</option>
+                                {passagers.map((passager, index) => (
+                                    <option
+                                        key={"passager_" + index}
+                                        value={passager.bonus.toString()}
+                                    >
+                                        {passager.number}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0  right-0 flex items-center px-2 text-gray-700">
+                                <BiSolidDownArrow size={13} color="green" />
+                            </div>
+                        </div>
+                    </CardContent>
+                    <StepFooter
+                        setCurrentStep={setCurrentStep}
+                        onSubmit={handleSubmit}
+                        currentStep={currentStep}
+                        disabled={disabled}
+                    />
+                </>
+            ) : (
+                <CardContent>
+
+                <Spinner />
+                </CardContent>
+            )}
+        </>
     )
 }
