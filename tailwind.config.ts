@@ -22,7 +22,7 @@ module.exports = {
                 ring: "var(--ring)",
                 background: {
                     DEFAULT: "var(--background)",
-                    reverse: "var(--background-reverse)"
+                    reverse: "var(--background-reverse)",
                 },
                 foreground: "hsl(var(--foreground))",
                 text: "var(--text)",
@@ -60,6 +60,7 @@ module.exports = {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
+                xs: "calc(var(--radius) - 6px)",
             },
             keyframes: {
                 "accordion-down": {
@@ -72,8 +73,8 @@ module.exports = {
                 },
             },
             animation: {
-                "accordion-down": "accordion-down 0.2s ease-out",
-                "accordion-up": "accordion-up 0.2s ease-out",
+                "accordion-down": "accordion-down 0.3s ease-out",
+                "accordion-up": "accordion-up 0.3s ease-out",
             },
             fontFamily: {
                 sans: ["var(--font-inter)"],

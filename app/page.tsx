@@ -1,3 +1,4 @@
+import { Historical } from "@/components/App/Historical"
 import { StepWrapper } from "@/components/App/StepWrapper"
 import { Header } from "@/components/Header"
 import Image from "next/image"

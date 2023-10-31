@@ -2,7 +2,8 @@
 import React, { useEffect } from "react"
 import dataCar from "@/data/data-car.json"
 import dataEmprunt from "@/data/data-emprunt.json"
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
+import dataHistorical from "@/data/data-historical.json"
+import { CardContent } from "../ui/card"
 import { BiSolidDownArrow } from "react-icons/bi"
 import { CalcTaux } from "@/lib/functions"
 import { setSearch } from "@/lib/work-data"
@@ -19,6 +20,10 @@ interface FormProps {
     currentStep: number
     setTaux: (taux: number) => void
     taux: number
+    email?: string
+    name?: string
+    familyName?: string
+    setRefreshHistorical: (value: boolean) => void
 }
 
 const TITLE =
@@ -32,6 +37,10 @@ export const Form: React.FC<FormProps> = ({
     currentStep,
     setTaux,
     taux,
+    email,
+    name,
+    familyName,
+    setRefreshHistorical,
 }) => {
     const types = dataCar.type
     const energies = dataCar.energy
@@ -99,7 +108,31 @@ export const Form: React.FC<FormProps> = ({
         years,
     ])
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        if (email) {
+            const newHistorical = {
+                id: dataHistorical.historical.length + 1,
+                userName: name,
+                userFamilyName: familyName,
+                userEmail: email,
+                type: types.find((type) => type.score === typeScore),
+                energy: energies.find((energy) => energy.score === energyScore),
+                mileage: mileages.find(
+                    (mileage) => mileage.score === mileageScore
+                ),
+                year: years.find((year) => year.score === yearScore),
+                taux: taux,
+                bonus: bonus,
+            }
+            const request = await fetch("/api/write-json", {
+                method: "POST",
+                body: JSON.stringify(newHistorical),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            setRefreshHistorical(true)
+        }
         setBonus(0)
         setDisabled(true)
         setTaux(0)
@@ -118,7 +151,7 @@ export const Form: React.FC<FormProps> = ({
         <>
             <StepHeader title={TITLE} description={DESRIPTION} />
             {!isLoading ? (
-                <section className="px-8 ms-10 mx-auto flex flex-col h-96 justify-evenly w-full">
+                <section className="px-8 ms-10 mx-auto flex flex-col h-full justify-between w-full">
                     <Infos />
                     <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto ">
                         <div className="relative  inline-flex items-center gap-2 w-54">
