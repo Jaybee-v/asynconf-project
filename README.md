@@ -1,6 +1,4 @@
-Application réalisée en NextJS avec stockage des données ainsi qu'un historique gérés en JSON.
-
-## Getting Started
+## Lancer l'application
 
 Bon test:
 
@@ -12,3 +10,11 @@ yarn dev
 Ouvrir [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ```
+
+## Technologies utilisée
+
+# NextJS (TypeScript, React)
+
+# Stockage des données en JSON
+
+# Historique créé en JSON
