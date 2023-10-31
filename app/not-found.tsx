@@ -24,7 +24,7 @@ export default function NotFount() {
                 </Link>
                 <Link
                     href="/"
-                    className="bg-background-reverse py-2 px-4 rounded-full"
+                    className="bg-background-reverse py-2 px-4 rounded-full text-gray-800"
                 >
                     Retour
                 </Link>
