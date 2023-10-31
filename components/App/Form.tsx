@@ -24,7 +24,8 @@ interface FormProps {
 const TITLE =
     "Personnalisez votre expérience en nous fournissant quelques informations clés pour obtenir le taux d'emprunt optimal."
 
-const DESRIPTION = "Pour obtenir le taux d'emprunt adapté à votre besoin, partagez quelques détails essentiels, tels que le type de véhicule, son carburant, sa date de mise en circulation, et bien plus encore."
+const DESRIPTION =
+    "Pour obtenir le taux d'emprunt adapté à votre besoin, partagez quelques détails essentiels, tels que le type de véhicule, son carburant, sa date de mise en circulation, et bien plus encore."
 
 export const Form: React.FC<FormProps> = ({
     setCurrentStep,
@@ -117,9 +118,9 @@ export const Form: React.FC<FormProps> = ({
         <>
             <StepHeader title={TITLE} description={DESRIPTION} />
             {!isLoading ? (
-                <>
-                <Infos/>
-                    <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto">
+                <section className="px-8 ms-10 mx-auto flex flex-col h-96 justify-evenly w-full">
+                    <Infos />
+                    <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto ">
                         <div className="relative  inline-flex items-center gap-2 w-54">
                             <MdCarCrash size={30} className="text-primary" />
                             <select
@@ -248,11 +249,10 @@ export const Form: React.FC<FormProps> = ({
                         currentStep={currentStep}
                         disabled={disabled}
                     />
-                </>
+                </section>
             ) : (
                 <CardContent>
-
-                <Spinner />
+                    <Spinner />
                 </CardContent>
             )}
         </>
