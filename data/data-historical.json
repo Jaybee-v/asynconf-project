@@ -1,3 +1,340 @@
 {
-    "historical": []
+  "historical": [
+    {
+      "id": 1,
+      "userName": "Jean-baptiste",
+      "userFamilyName": "Vrain",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "bonus": -0.17,
+      "energy": {
+        "label": "Diesel",
+        "score": 4
+      },
+      "mileage": {
+        "min": 10,
+        "max": 15,
+        "score": 7
+      },
+      "taux": 2.35,
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "year": {
+        "min": 1980,
+        "max": 1990,
+        "score": 3
+      }
+    },
+    {
+      "id": 2,
+      "userName": "Jean-baptiste",
+      "userFamilyName": "Vrain",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "bonus": -0.17,
+      "energy": {
+        "label": "Diesel",
+        "score": 4
+      },
+      "mileage": {
+        "min": 10,
+        "max": 15,
+        "score": 7
+      },
+      "taux": 2.35,
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "year": {
+        "min": 1980,
+        "max": 1990,
+        "score": 3
+      }
+    },
+    {
+      "id": 3,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "energy": {
+        "label": "Hybride",
+        "score": 7
+      },
+      "mileage": {
+        "min": 15,
+        "max": 20,
+        "score": 5
+      },
+      "year": {
+        "min": 1990,
+        "max": 2000,
+        "score": 4
+      },
+      "taux": 1.99,
+      "bonus": -0.53
+    },
+    {
+      "id": 4,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "energy": {
+        "label": "Diesel",
+        "score": 4
+      },
+      "mileage": {
+        "min": 15,
+        "max": 20,
+        "score": 5
+      },
+      "year": {
+        "min": 1980,
+        "max": 1990,
+        "score": 3
+      },
+      "taux": 2.63,
+      "bonus": 0.11
+    },
+    {
+      "id": 5,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "berline",
+        "minWeight": 1300,
+        "maxWeight": 1800,
+        "score": 6.5
+      },
+      "energy": {
+        "label": "Diesel",
+        "score": 4
+      },
+      "mileage": {
+        "min": 20,
+        "max": 25,
+        "score": 3
+      },
+      "year": {
+        "min": 2000,
+        "max": 2010,
+        "score": 5
+      },
+      "taux": 2.23,
+      "bonus": -0.29
+    },
+    {
+      "id": 6,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "SUV / 4x4",
+        "minWeight": 1500,
+        "maxWeight": 2500,
+        "score": 4
+      },
+      "energy": {
+        "label": "Electrique",
+        "score": 9
+      },
+      "mileage": {
+        "min": 15,
+        "max": 20,
+        "score": 5
+      },
+      "year": {
+        "min": 1990,
+        "max": 2000,
+        "score": 4
+      },
+      "taux": 2.35,
+      "bonus": -0.17
+    },
+    {
+      "id": 7,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "energy": {
+        "label": "Electrique",
+        "score": 9
+      },
+      "mileage": {
+        "min": 10,
+        "max": 15,
+        "score": 7
+      },
+      "year": {
+        "min": 1990,
+        "max": 2000,
+        "score": 4
+      },
+      "taux": 1.81,
+      "bonus": -0.29
+    },
+    {
+      "id": 8,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "SUV / 4x4",
+        "minWeight": 1500,
+        "maxWeight": 2500,
+        "score": 4
+      },
+      "energy": {
+        "label": "Essence",
+        "score": 5
+      },
+      "mileage": {
+        "min": 20,
+        "max": 25,
+        "score": 3
+      },
+      "year": {
+        "min": 2000,
+        "max": 2010,
+        "score": 5
+      },
+      "taux": 2.35,
+      "bonus": -0.17
+    },
+    {
+      "id": 9,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "berline",
+        "minWeight": 1300,
+        "maxWeight": 1800,
+        "score": 6.5
+      },
+      "energy": {
+        "label": "Gaz",
+        "score": 6
+      },
+      "mileage": {
+        "min": 5,
+        "max": 10,
+        "score": 9
+      },
+      "year": {
+        "min": 2010,
+        "max": null,
+        "score": 7
+      },
+      "taux": 1.57,
+      "bonus": -0.53
+    },
+    {
+      "id": 10,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "citadine",
+        "minWeight": 800,
+        "maxWeight": 1300,
+        "score": 8
+      },
+      "energy": {
+        "label": "Electrique",
+        "score": 9
+      },
+      "mileage": {
+        "min": 10,
+        "max": 15,
+        "score": 7
+      },
+      "year": {
+        "min": 1980,
+        "max": 1990,
+        "score": 3
+      },
+      "taux": 1.9300000000000002,
+      "bonus": -0.17
+    },
+    {
+      "id": 11,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "citadine",
+        "minWeight": 800,
+        "maxWeight": 1300,
+        "score": 8
+      },
+      "energy": {
+        "label": "Hybride",
+        "score": 7
+      },
+      "mileage": {
+        "min": 15,
+        "max": 20,
+        "score": 5
+      },
+      "year": {
+        "min": 1990,
+        "max": 2000,
+        "score": 4
+      },
+      "taux": 2.35,
+      "bonus": -0.17
+    },
+    {
+      "id": 12,
+      "userName": "Jean Baptiste",
+      "userFamilyName": "VRAIN",
+      "userEmail": "j-b.vrain@outlook.fr",
+      "type": {
+        "name": "cabriolet",
+        "minWeight": 1300,
+        "maxWeight": 2000,
+        "score": 6
+      },
+      "energy": {
+        "label": "Electrique",
+        "score": 9
+      },
+      "mileage": {
+        "min": 10,
+        "max": 15,
+        "score": 7
+      },
+      "year": {
+        "min": 1970,
+        "max": 1980,
+        "score": 2
+      },
+      "taux": "2.350",
+      "bonus": -0.17
+    }
+  ]
 }

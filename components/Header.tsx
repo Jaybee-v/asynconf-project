@@ -1,11 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
-import { ToggleTheme } from './ToggleTheme'
+import React from "react"
+import { ToggleTheme } from "./ToggleTheme"
 
 export const Header = () => {
-  return (
-    <header className='z-50 w-fit absolute right-4'>
-            <ToggleTheme/>
-    </header>
-  )
+    return (
+        <header className="z-50 w-fit absolute right-4">
+            <ToggleTheme />
+        </header>
+    )
 }

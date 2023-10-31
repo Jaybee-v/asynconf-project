@@ -13,9 +13,9 @@ export const Upgrade: React.FC<UpgradeProps> = ({ data }) => {
     console.log("DATA", data)
 
     return (
-        <section className="px-8 py-4 mx-auto flex flex-col h-96 justify-evenly">
+        <section className="px-4 md:px-8 py-4 mx-auto flex flex-col h-96 justify-evenly">
             <div className="w-full mx-auto">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                     {/* {data.type.score > 6 && (
                             <div>
                                 <Label>Type de véhicule</Label>
@@ -74,7 +74,7 @@ export const Upgrade: React.FC<UpgradeProps> = ({ data }) => {
             </div>
 
             <div className="w-full mx-auto">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                     {data.type.score < 6 && (
                         <div>
                             <Label className="text-red-500 flex items-center">

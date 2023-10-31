@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React from "react"
 import { CardDescription, CardHeader, CardTitle } from "../ui/card"
 import Image from "next/image"
@@ -8,9 +8,12 @@ interface CardHeaderProps {
     description?: string
 }
 
-export const StepHeader: React.FC<CardHeaderProps> = ({ title, description }) => {
+export const StepHeader: React.FC<CardHeaderProps> = ({
+    title,
+    description,
+}) => {
     return (
-        <CardHeader className="w-[90%] mx-auto flex flex-col items-center justify-center border-b px-6 border-primary mb-8">
+        <CardHeader className="w-[90%] mx-auto flex flex-col items-center justify-center border-b px-6 border-primary md:mb-8">
             <Image
                 src="/assets/logo.png"
                 width={400}
@@ -18,7 +21,11 @@ export const StepHeader: React.FC<CardHeaderProps> = ({ title, description }) =>
                 alt="Logo de l'entreprise GREEN BANK"
             />
             {title && <CardTitle>{title}</CardTitle>}
-            {description && <CardDescription className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">{description}</CardDescription>}
+            {description && (
+                <CardDescription className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
+                    {description}
+                </CardDescription>
+            )}
         </CardHeader>
     )
 }
