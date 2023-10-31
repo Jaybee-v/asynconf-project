@@ -118,6 +118,7 @@ export const Form: React.FC<FormProps> = ({
             <StepHeader title={TITLE} description={DESRIPTION} />
             {!isLoading ? (
                 <>
+                <Infos/>
                     <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto">
                         <div className="relative  inline-flex items-center gap-2 w-54">
                             <MdCarCrash size={30} className="text-primary" />
@@ -249,7 +250,10 @@ export const Form: React.FC<FormProps> = ({
                     />
                 </>
             ) : (
+                <CardContent>
+
                 <Spinner />
+                </CardContent>
             )}
         </>
     )

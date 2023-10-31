@@ -10,7 +10,7 @@ export const ToggleTheme = () => {
         setTheme("light")
     }, [])
     return (
-        <section className="w-full flex justify-end z-50">
+        <section className="w-full flex justify-end z-50 pe-1 pt-1">
             {theme === "light" && (
                 <Button className="bg-background-reverse hover:!bg-opacity-60 hover:bg-background-reverse" onClick={() => setTheme("dark")}>
                     <MdDarkMode size={15} color="white" />

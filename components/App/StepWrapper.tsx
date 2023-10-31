@@ -14,7 +14,7 @@ export const StepWrapper = () => {
     const [email, setEmail] = React.useState("")
 
     return (
-        <Card className="md:max-w-[80%] w-full min-h-[95vh] max-h-[95vh] h-full flex flex-col justify-between">
+        <Card className="md:max-w-[80%] w-full min-h-[95vh] max-h-[95vh] h-full flex flex-col ">
             {currentStep === 0 && (
                 <Welcome
                     currentStep={currentStep}

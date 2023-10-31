@@ -3,7 +3,7 @@ import { MdEco } from 'react-icons/md'
 
 export const Spinner = () => {
     return (
-        <section className='w-full h-40 mx-auto flex flex-col items-center justify-center'>
+        <section className='w-full h-fit mx-auto flex flex-col items-center justify-center'>
 
         <div className="w-20 h-20 animate-spin">
           <MdEco className="w-full h-full text-primary" />

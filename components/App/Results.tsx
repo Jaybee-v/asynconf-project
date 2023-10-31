@@ -13,8 +13,7 @@ interface ResultsProps {
 }
 
 const TITLE = "Votre taux d'emprunt est prêt !"
-const DESCRIPTION =
-    "Merci ! Vous avez la possibilité de lancer une nouvelle simulation ou de quitter l'application."
+
 
 export const Results: React.FC<ResultsProps> = ({
     setCurrentStep,
@@ -25,7 +24,7 @@ export const Results: React.FC<ResultsProps> = ({
 
     return (
         <>
-            <StepHeader title={TITLE} description={DESCRIPTION} />
+            <StepHeader title={TITLE} />
             <CardContent className="flex gap-10 justify-center">
                 <div className="flex flex-col h-20 justify-evenly">
                     <Label>Type du véhicule</Label>

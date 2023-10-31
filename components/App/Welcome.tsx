@@ -1,12 +1,9 @@
 "use client"
 import React from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "../ui/card"
-import { Button } from "../ui/button"
-import { MdOutlineArrowRight } from "react-icons/md"
+import {  CardContent, CardDescription } from "../ui/card"
 import { Label } from "../ui/label"
 import { Input } from "../ui/input"
 import { StepFooter } from "./StepFooter"
-import Image from "next/image"
 import { StepHeader } from "./StepHeader"
 
 interface WelcomeProps {
