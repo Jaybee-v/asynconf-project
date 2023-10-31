@@ -13,8 +13,8 @@ Ouvrir [http://localhost:3000](http://localhost:3000) with your browser to see t
 
 ## Technologies utilisée
 
-# NextJS (TypeScript, React)
+### NextJS (TypeScript, React)
 
-# Stockage des données en JSON
+### Stockage des données en JSON
 
-# Historique créé en JSON
+### Historique créé en JSON
