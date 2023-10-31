@@ -8,9 +8,9 @@ export const ToggleTheme = () => {
     const { setTheme, theme } = useTheme()
     React.useEffect(() => {
         setTheme("light")
-    }, [])
+    }, [setTheme])
     return (
-        <section className="w-full flex justify-end z-50 pe-4 md:pe-6 pt-4">
+        <section className="w-full flex justify-end z-50 pe-1 md:pe-6 pt-4">
             {theme === "light" && (
                 <Button
                     className="bg-background-reverse hover:!bg-opacity-60 hover:bg-background-reverse"

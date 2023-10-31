@@ -19,10 +19,10 @@ export const StepFooter: React.FC<StepFooterProps> = ({
 }) => {
     return (
         <CardFooter>
-            <div className="flex flex-col-reverse md:flex-row justify-evenly p-4 group px-8 w-full">
+            <div className="flex flex-col-reverse md:flex-row justify-evenly gap-2 p-4 group px-8 w-full">
                 {currentStep > 0 && (
                     <Button variant="outline" onClick={() => setCurrentStep(0)}>
-                        Qui sommes-nous ?
+                        Arrêter
                     </Button>
                 )}
                 {currentStep === 0 && (

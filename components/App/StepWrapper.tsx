@@ -41,7 +41,7 @@ export const StepWrapper = () => {
     React.useEffect(() => {})
 
     return (
-        <Card className="md:max-w-[99%] w-full min-h-[95vh] lg:max-h-[95vh] h-full flex flex-col justify-around">
+        <Card className="md:max-w-[80%] w-full min-h-[100vh] lg:max-h-[95vh] h-full flex flex-col justify-around md:my-6">
             {currentStep === 0 && (
                 <Welcome
                     currentStep={currentStep}
@@ -72,7 +72,7 @@ export const StepWrapper = () => {
                     setCurrentStep={setCurrentStep}
                 />
             )}
-            {currentStep > 0 && userHistorical.length > 0 && (
+            {email && currentStep > 0 && userHistorical.length > 0 && (
                 <HistoricalComponent userHistorical={userHistorical} />
             )}
         </Card>
