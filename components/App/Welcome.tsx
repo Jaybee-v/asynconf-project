@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import {  CardContent, CardDescription } from "../ui/card"
+import { CardContent, CardDescription } from "../ui/card"
 import { Label } from "../ui/label"
 import { Input } from "../ui/input"
 import { StepFooter } from "./StepFooter"
@@ -32,29 +32,34 @@ export const Welcome: React.FC<WelcomeProps> = ({
 }) => {
     return (
         <>
-            <StepHeader  />
-            <CardDescription  className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
+            <StepHeader />
+            <CardDescription className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
                 <h1>
-
-                La Green Bank, fondée en 2022, est une institution financière <span className="font-semibold me-1">
-                    novatrice
+                    La Green Bank, fondée en 2022, est une institution
+                    financière{" "}
+                    <span className="font-semibold me-1">novatrice</span>
+                    axée sur la{" "}
+                    <span className="font-semibold me-1">durabilité</span>
+                    et l&apos;
+                    <span className="font-semibold me-1">
+                        impact environnemental positif
                     </span>
-                     axée sur la <span className="font-semibold me-1">
-                        durabilité
-                        </span>
-                         et l&apos;<span className="font-semibold me-1">
-                            impact environnemental positif
-                            </span>
-                            . Son objectif principal est de <br/><span className="font-semibold me-1 text-primary">
-                                catalyser des investissements et des initiatives qui favorisent la transition vers une économie verte et durable
-                                </span>
-                                .
+                    . Son objectif principal est de <br />
+                    <span className="font-semibold me-1 text-primary">
+                        catalyser des investissements et des initiatives qui
+                        favorisent la transition vers une économie verte et
+                        durable
+                    </span>
+                    .
                 </h1>
-</CardDescription>
-            <CardContent>
+            </CardDescription>
+            <CardContent className="px-8 ms-10 mx-auto flex flex-col h-96 justify-evenly w-full">
                 <section className="flex flex-col md:grid grid-cols-2 gap-y-4 justify-evenly  items-center mx-8 relative w-full">
                     <p className="italic text-sm w-64 md:w-96 mx-auto">
-                    Vous pouvez poursuivre sans compléter ces informations, cependant, en les partageant, vous bénéficierez d&apos;un historique de recherche personnalisé pour une expérience plus enrichissante.
+                        Vous pouvez poursuivre sans compléter ces informations,
+                        cependant, en les partageant, vous bénéficierez
+                        d&apos;un historique de recherche personnalisé pour une
+                        expérience plus enrichissante.
                     </p>
                     <div className="w-full mx-auto">
                         <Label>Email</Label>
