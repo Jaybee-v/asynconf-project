@@ -13,18 +13,10 @@ import { FaHistory } from "react-icons/fa"
 import { Historical as HistoricalType } from "@/models/historical"
 
 interface HistoricalProps {
-    name?: string
-    familyName?: string
-    email?: string
     userHistorical?: HistoricalType[]
 }
 
-export const Historical: React.FC<HistoricalProps> = ({
-    name,
-    familyName,
-    email,
-    userHistorical,
-}) => {
+export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
     return (
         <section className="absolute top-1/2 left-4 z-50">
             <DropdownMenu>
@@ -35,19 +27,32 @@ export const Historical: React.FC<HistoricalProps> = ({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuLabel>
-                        Mon historique de simulation
+                        Mes 5 dernières simulations
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
                         {userHistorical?.map((item) => (
                             <DropdownMenuItem key={item.id}>
-                                {item.type.name +
-                                    " / " +
-                                    item.energy.label +
-                                    " / " +
-                                    item.year.min +
-                                    " - " +
-                                    item.year.max}
+                                {item.year.max ? (
+                                    <>
+                                        {item.type.name +
+                                            " / " +
+                                            item.energy.label +
+                                            " / " +
+                                            item.year.min +
+                                            " - " +
+                                            item.year.max}
+                                    </>
+                                ) : (
+                                    <>
+                                        {item.type.name +
+                                            " / " +
+                                            item.energy.label +
+                                            " / " +
+                                            "après " +
+                                            item.year.min}
+                                    </>
+                                )}
                             </DropdownMenuItem>
                         ))}
                     </DropdownMenuGroup>

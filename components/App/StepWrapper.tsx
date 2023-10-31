@@ -24,12 +24,16 @@ export const StepWrapper = () => {
         const normalizedEmail = email.toLowerCase() // Vous pouvez normaliser l'email en minuscules
 
         if (email) {
-            const filteredHistorical = historical.filter((item) => {
-                return item.userEmail.toLowerCase() === normalizedEmail
-            })
+            const filteredHistorical = historical
+                .filter((item) => {
+                    return item.userEmail.toLowerCase() === normalizedEmail
+                })
+                .sort((a, b) => b.id - a.id)
+                .slice(0, 5)
             console.log("ON CHERCHE")
 
             setUserHistorical(filteredHistorical)
+            setRefreshHistorical(false)
             console.log(filteredHistorical)
         }
     }, [name, familyName, email, refreshHistorical])
