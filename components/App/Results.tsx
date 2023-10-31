@@ -53,10 +53,14 @@ export const Results: React.FC<ResultsProps> = ({
                     </p>
                 </div>
             </CardContent>
-            <section className="w-fit mx-auto border px-2">
+            <section
+                className={`w-fit mx-auto rounded-full px-4 py-2 mt-8 ${
+                    dataSearch.taux > 2 ? "bg-orange-500/80" : "bg-primary"
+                }`}
+            >
                 <h2 className="text-center">
                     Votre taux d&apos;emprunt après calcul est de :
-                    <span className="text-xl font-bold tracking-wider">
+                    <span className={`text-xl font-bold tracking-wider `}>
                         {" " + dataSearch.taux + " "}
                     </span>
                     %

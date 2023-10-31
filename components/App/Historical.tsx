@@ -43,7 +43,9 @@ export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
                                             " - " +
                                             item.year.max +
                                             " / " +
-                                            Math.round(item.taux) +
+                                            parseFloat(
+                                                item.taux.toString()
+                                            ).toFixed(2) +
                                             "%"}
                                     </>
                                 ) : (
@@ -55,7 +57,9 @@ export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
                                             "après " +
                                             item.year.min +
                                             " / " +
-                                            Math.round(item.taux) +
+                                            parseFloat(
+                                                item.taux.toString()
+                                            ).toFixed(2) +
                                             "%"}
                                     </>
                                 )}

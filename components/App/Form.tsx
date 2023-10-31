@@ -88,7 +88,7 @@ export const Form: React.FC<FormProps> = ({
                     (mileage) => mileage.score === mileageScore
                 ),
                 year: years.find((year) => year.score === yearScore),
-                taux: parseFloat(res.toString()).toFixed(3),
+                taux: res,
                 bonus: bonus,
             }
 
@@ -121,7 +121,7 @@ export const Form: React.FC<FormProps> = ({
                     (mileage) => mileage.score === mileageScore
                 ),
                 year: years.find((year) => year.score === yearScore),
-                taux: parseFloat(taux.toString()).toFixed(3),
+                taux: taux,
                 bonus: bonus,
             }
             const request = await fetch("/api/write-json", {
