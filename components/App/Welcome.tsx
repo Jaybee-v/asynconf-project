@@ -33,19 +33,19 @@ export const Welcome: React.FC<WelcomeProps> = ({
     return (
         <>
             <StepHeader />
-            <CardDescription className="w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
+            <CardDescription className="md:w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
                 <h1>
                     La Green Bank, fondée en 2022, est une institution
                     financière{" "}
-                    <span className="font-semibold me-1">novatrice</span>
+                    <span className="font-semibold pe-1">novatrice</span>
                     axée sur la{" "}
-                    <span className="font-semibold me-1">durabilité</span>
+                    <span className="font-semibold pe-1">durabilité</span>
                     et l&apos;
-                    <span className="font-semibold me-1">
+                    <span className="font-semibold pe-1">
                         impact environnemental positif
                     </span>
                     . Son objectif principal est de <br />
-                    <span className="font-semibold me-1 text-primary">
+                    <span className="font-semibold pe-1 text-primary">
                         catalyser des investissements et des initiatives qui
                         favorisent la transition vers une économie verte et
                         durable
@@ -53,8 +53,8 @@ export const Welcome: React.FC<WelcomeProps> = ({
                     .
                 </h1>
             </CardDescription>
-            <CardContent className="px-8 ms-10 mx-auto flex flex-col h-96 justify-evenly w-full">
-                <section className="flex flex-col md:grid grid-cols-2 gap-y-4 justify-evenly  items-center mx-8 relative w-full">
+            <CardContent className="md:px-8 md:ms-10 mx-auto flex flex-col h-96 justify-evenly w-full">
+                <section className="flex flex-col md:grid grid-cols-2 gap-y-4 justify-evenly  items-center md:px-8 relative w-full">
                     <p className="italic text-sm w-64 md:w-96 mx-auto">
                         Vous pouvez poursuivre sans compléter ces informations,
                         cependant, en les partageant, vous bénéficierez
@@ -65,7 +65,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                         <Label>Email</Label>
                         <Input
                             placeholder="Email"
-                            className="w-96"
+                            className="max-w-96 md:w-60 lg:w-80 xl:w-96 "
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +75,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                         <Label className="">Nom</Label>
                         <Input
                             placeholder="Nom"
-                            className="w-96 "
+                            className="max-w-96 md:w-60 lg:w-80 xl:w-96 "
                             value={familyName}
                             onChange={(e) => setFamilyName(e.target.value)}
                         />
@@ -84,7 +84,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                         <Label>Prénom</Label>
                         <Input
                             placeholder="Prénom"
-                            className="w-96"
+                            className="max-w-96 md:w-60 lg:w-80 xl:w-96"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />

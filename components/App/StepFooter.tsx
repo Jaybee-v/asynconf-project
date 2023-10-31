@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React from "react"
 import { CardFooter } from "../ui/card"
 import { Button } from "../ui/button"
@@ -19,12 +19,9 @@ export const StepFooter: React.FC<StepFooterProps> = ({
 }) => {
     return (
         <CardFooter>
-            <div className="flex justify-evenly m-4 group px-8 w-full">
+            <div className="flex flex-col-reverse md:flex-row justify-evenly p-4 group px-8 w-full">
                 {currentStep > 0 && (
-                    <Button
-                        variant={"outline"}
-                        onClick={() => setCurrentStep(0)}
-                    >
+                    <Button variant="outline" onClick={() => setCurrentStep(0)}>
                         Qui sommes-nous ?
                     </Button>
                 )}
@@ -77,24 +74,24 @@ export const StepFooter: React.FC<StepFooterProps> = ({
                 {currentStep === 2 && (
                     <Button
                         onClick={onSubmit}
-                        className={`${
+                        className={` ${
                             disabled ? "cursor-wait" : "cursor-pointer"
                         }`}
                         disabled={disabled}
                     >
                         <MdOutlineArrowRight
                             size={20}
-                            className={`ms-2 ${
+                            className={`hidden md:block ms-2 ${
                                 !disabled ? "animate-ping" : "hidden"
                             } `}
-                            />{" "}
+                        />{" "}
                         <MdOutlineArrowRight
                             size={20}
-                            className={`ms-2 me-2 ${
+                            className={`hidden md:block ms-2 me-2 ${
                                 !disabled ? "animate-ping" : "hidden"
                             } delay-75`}
-                            />{" "}
-                            Essayer une nouvelle simulation
+                        />{" "}
+                        Essayer une nouvelle simulation
                     </Button>
                 )}
             </div>

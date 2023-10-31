@@ -3,7 +3,7 @@ import React, { useEffect } from "react"
 import dataCar from "@/data/data-car.json"
 import dataEmprunt from "@/data/data-emprunt.json"
 import dataHistorical from "@/data/data-historical.json"
-import { CardContent } from "../ui/card"
+import { CardContent, CardDescription } from "../ui/card"
 import { BiSolidDownArrow } from "react-icons/bi"
 import { CalcTaux } from "@/lib/functions"
 import { setSearch } from "@/lib/work-data"
@@ -88,7 +88,7 @@ export const Form: React.FC<FormProps> = ({
                     (mileage) => mileage.score === mileageScore
                 ),
                 year: years.find((year) => year.score === yearScore),
-                taux: res,
+                taux: parseFloat(res.toString()).toFixed(3),
                 bonus: bonus,
             }
 
@@ -121,7 +121,7 @@ export const Form: React.FC<FormProps> = ({
                     (mileage) => mileage.score === mileageScore
                 ),
                 year: years.find((year) => year.score === yearScore),
-                taux: taux,
+                taux: parseFloat(taux.toString()).toFixed(3),
                 bonus: bonus,
             }
             const request = await fetch("/api/write-json", {
@@ -149,9 +149,12 @@ export const Form: React.FC<FormProps> = ({
 
     return (
         <>
-            <StepHeader title={TITLE} description={DESRIPTION} />
+            <StepHeader title={TITLE} />
             {!isLoading ? (
-                <section className="px-8 ms-10 mx-auto flex flex-col h-full justify-between w-full">
+                <section className="md:px-8 md:ms-10 mx-auto flex flex-col h-full min-h-[350px] justify-between w-full">
+                    <CardDescription className="md:w-[70%] mx-auto mb-8 text-text p-4 text-lg text-center">
+                        {DESRIPTION}
+                    </CardDescription>
                     <Infos />
                     <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto ">
                         <div className="relative  inline-flex items-center gap-2 w-54">

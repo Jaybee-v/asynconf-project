@@ -18,7 +18,7 @@ interface HistoricalProps {
 
 export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
     return (
-        <section className="absolute top-1/2 left-4 z-50">
+        <section className="absolute top-[78%] right-14 md:top-1/2 md:left-4 z-50">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button className="bg-background-reverse text-background hover:bg-primary">
@@ -41,7 +41,10 @@ export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
                                             " / " +
                                             item.year.min +
                                             " - " +
-                                            item.year.max}
+                                            item.year.max +
+                                            " / " +
+                                            Math.round(item.taux) +
+                                            "%"}
                                     </>
                                 ) : (
                                     <>
@@ -50,7 +53,10 @@ export const Historical: React.FC<HistoricalProps> = ({ userHistorical }) => {
                                             item.energy.label +
                                             " / " +
                                             "après " +
-                                            item.year.min}
+                                            item.year.min +
+                                            " / " +
+                                            Math.round(item.taux) +
+                                            "%"}
                                     </>
                                 )}
                             </DropdownMenuItem>
